@@ -1,11 +1,11 @@
-import requests
-from datetime import date
+import requests #MakingHTTP requests
+from datetime import date #Get today's date
 
 URL = "https://api.data.gov.sg/v1/environment/pm25"
 
 today = str(date.today())
-r = requests.get(url=URL+"?date="+today)
-data = r.json()
+response = requests.get(url=URL+"?date="+today)
+data = response.json()
 
 for record in data["items"]:
     print("event_time:"+record["update_timestamp"])
